@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="120dp"
+    android:width="120dp"
+    android:viewportWidth="@integer/viewPortWidth"
+    android:viewportHeight="@integer/viewPortHeight"
+    >
+    <group
+        android:name="@string/bookMarkGroupName"
+        android:pivotX="@integer/viewCenterX"
+        android:pivotY="@integer/viewCenterY"
+        >
+        <path android:name="@string/bookMarkName"
+            android:pathData="@string/homePath"
+            android:strokeLineCap="square"
+            android:strokeWidth="0.5"
+            android:strokeColor="@color/black"
+            />
+
+
+    </group>
+
+</vector>

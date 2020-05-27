@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="120dp"
+    android:width="120dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="@color/white"
+    >
+    <group
+        android:name="@string/shareGroupName"
+        android:pivotX="@integer/viewCenterX"
+        android:pivotY="@integer/viewCenterY"
+        >
+    <path android:name="@string/shareName"
+        android:pathData="@string/sharePath"
+        android:strokeLineCap="square"
+        android:strokeWidth="0.5"
+        android:fillColor="@color/white"
+        android:strokeColor="@color/white"
+        />
+    </group>
+
+</vector>

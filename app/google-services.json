@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "896879091673",
+    "firebase_url": "https://meme-editor-70713.firebaseio.com",
+    "project_id": "meme-editor-70713",
+    "storage_bucket": "meme-editor-70713.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:896879091673:android:fd5e3c430fb7fc3af583c8",
+        "android_client_info": {
+          "package_name": "com.cyris.createphoto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "896879091673-68qnjl5h9drlqv85a81su75d7v7bah8e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtQ08FuRQ5Kf2IlmdBhSy-Fn34tRkro3s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "896879091673-68qnjl5h9drlqv85a81su75d7v7bah8e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

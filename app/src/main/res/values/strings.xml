@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Meme Creator</string>
+    <string name="text_color">text_color</string>
+    <string name="text_background">text_back</string>
+    <string name="paint_color">paint_color</string>
+    <string name="paint_background">paint_back</string>
+    <string name="meme_creator">Meme Creator</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_first">FirstActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="home_second">Home Second</string>
+
+
+    <string name="intent_meme">intent_meme</string>
+    <string name="intent_meme_home">intent_meme_home</string>
+    <string name="extra_meme_template">extra_meme_template</string>
+    <string name="check_saved_intent">check_saved_intent</string>
+
+
+    <array name="typeface_data">
+        <item name="Armalite_rifle.ttf">Armalite_rifle.ttf</item>
+        <item name="Capture_it.ttf">Capture_it.ttf</item>
+        <item name="CarbonBlock.ttf">CarbonBlock.ttf</item>
+        <item name="Collegeb.ttf">Collegeb.ttf</item>
+        <item name="Cookie-Regular.ttf">Cookie-Regular.ttf</item>
+        <item name="EraserRegular.ttf">EraserRegular.ttf</item>
+        <item name="Freshman.ttf">Freshman.ttf</item>
+        <item name="GrandHotel-Regular.otf">GrandHotel-Regular.otf</item>
+        <item name="Harry-P.ttf">Harry-P.ttf</item>
+        <item name="Karate.ttf">Karate.ttf</item>
+        <item name="KilligrewThugLife.ttf">KilligrewThugLife.ttf</item>
+        <item name="LobsterTwo-Bold.otf">LobsterTwo-Bold.otf</item>
+        <item name="PixelMiners.otf">PixelMiners.otf</item>
+        <item name="pricedown_bl.otf">pricedown_bl.otf</item>
+        <item name="Spider-Man.ttf">Spider-Man.ttf</item>
+        <item name="SprayMe.ttf">SprayMe.ttf</item>
+        <item name="SuperMario256.ttf">SuperMario256.ttf</item>
+        <item name="TheGodfather-v2.ttf">TheGodfather-v2.ttf</item>
+        <item name="Top_Secret.ttf">Top_Secret.ttf</item>
+        <item name="Waltograph.ttf">Waltograph.ttf</item>
+    </array>
+    
+    
+    <string name="adAppId">ca-app-pub-9531546526616195~2251997047</string>
+    <string name="exitAdId">ca-app-pub-9531546526616195/3461136937</string>
+    <string name="saveAdId">ca-app-pub-9531546526616195/2141451878</string>
+    <string name="downloadAdId">ca-app-pub-9531546526616195/2240690071</string>
+
+
+</resources>

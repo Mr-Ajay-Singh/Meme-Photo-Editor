@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="textEdit">1. To apply Background on Text Press Long on Text</string>
+    <string name="dragFeature">2. Drag your Text/image/emoji to required position by hold and drag</string>
+    <string name="enlargeFeature">3. Increase size of Text/image/emoji by draging it with two fingers</string>
+
+
+</resources>
