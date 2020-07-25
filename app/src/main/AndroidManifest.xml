@@ -17,7 +17,7 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-9531546526616195~2251997047"/>
+            android:value=""/>
 
         <activity android:name=".SplashScreen"
             android:screenOrientation="portrait">
