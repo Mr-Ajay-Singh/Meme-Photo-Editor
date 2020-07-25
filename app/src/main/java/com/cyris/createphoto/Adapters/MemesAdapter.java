@@ -47,7 +47,7 @@ public class MemesAdapter extends RecyclerView.Adapter<MemesAdapter.MemesViewHol
             memesList = meme;
             dialogOperation();
             interstitialAd = new InterstitialAd(context);
-            interstitialAd.setAdUnitId("ca-app-pub-9531546526616195/2240690071");
+            interstitialAd.setAdUnitId("");
             interstitialAd.loadAd(new AdRequest.Builder().build());
         }
 
@@ -159,28 +159,7 @@ public class MemesAdapter extends RecyclerView.Adapter<MemesAdapter.MemesViewHol
                         }
                     });
 
-                  /*  editImage.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            editPermission(getLayoutPosition());
-                        }
-                    });*/
-
-                   /* shareImage.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            sharePermission(getLayoutPosition());
-                        }
-                    }); */
-
-                   /* downloadImage.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            downloadPermission(getLayoutPosition());
-                            DownloadImageFile downloadImageFile = new DownloadImageFile(context);
-                            downloadImageFile.execute(memesList.get(getLayoutPosition()));
-                        }
-                    });*/
+                
 
                 }
             });
