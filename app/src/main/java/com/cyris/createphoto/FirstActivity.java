@@ -69,7 +69,6 @@ public class FirstActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().hide();
-        //adLoader();
 
 
         this.findViewById(R.id.mainFrameLayout).setBackground(new ColorDrawable(Color.TRANSPARENT));
@@ -111,29 +110,7 @@ public class FirstActivity extends AppCompatActivity {
     }
 
 
-  /*  private void adLoader() {
-        adLoader = new AdLoader.Builder(this, "ca-app-pub-3940256099942544/2247696110")
-                .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
-                    @Override
-                    public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
-                        // Show the ad.
-                    }
-                })
-                .withAdListener(new AdListener() {
-                    @Override
-                    public void onAdFailedToLoad(int errorCode) {
-                        // Handle the failure by logging, altering the UI, and so on.
-                    }
-                })
-                .withNativeAdOptions(new NativeAdOptions.Builder()
-                        // Methods in the NativeAdOptions.Builder class can be
-                        // used here to specify individual options settings.
-                        .build())
-                .build();
-
-
-    }*/
-
+ 
     private void onLowerSectionClick() {
 
         addImageInLowerSection.setOnClickListener(new View.OnClickListener() {
@@ -225,23 +202,7 @@ public class FirstActivity extends AppCompatActivity {
         exitDialog.show();
         adLoader.loadAd(new AdRequest.Builder().build());
 
-       /* if (doubleBackToExitPressedOnce) {
-            this.finishAffinity();
-            return;
-        }
-
-        this.doubleBackToExitPressedOnce = true;
-        //Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
-        Snackbar.make(viewPager,"Please click BACK again to exit",Snackbar.LENGTH_SHORT).show();
-
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                doubleBackToExitPressedOnce=false;
-            }
-        }, 2000);*/
-    }
+    
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -292,7 +253,7 @@ public class FirstActivity extends AppCompatActivity {
 
     public void exitAdLoading()
     {
-         adLoader = new AdLoader.Builder(this, "ca-app-pub-9531546526616195/3461136937")
+         adLoader = new AdLoader.Builder(this, "")
                 .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
                     @Override
                     public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
@@ -306,8 +267,6 @@ public class FirstActivity extends AppCompatActivity {
                     }
                 })
                 .build();
-
-       // adLoader.loadAd(new AdRequest.Builder().build());
     }
 
 
