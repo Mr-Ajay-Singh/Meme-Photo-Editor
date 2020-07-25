@@ -53,10 +53,10 @@
     </array>
     
     
-    <string name="adAppId">ca-app-pub-9531546526616195~2251997047</string>
-    <string name="exitAdId">ca-app-pub-9531546526616195/3461136937</string>
-    <string name="saveAdId">ca-app-pub-9531546526616195/2141451878</string>
-    <string name="downloadAdId">ca-app-pub-9531546526616195/2240690071</string>
+    <string name="adAppId"></string>
+    <string name="exitAdId"></string>
+    <string name="saveAdId"></string>
+    <string name="downloadAdId"></string>
 
 
 </resources>
