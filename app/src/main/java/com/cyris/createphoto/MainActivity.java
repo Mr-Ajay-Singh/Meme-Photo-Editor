@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.ItemD
         checkSavedIntent = getIntent().getBooleanExtra(getString(R.string.check_saved_intent),false);
         progressBar = findViewById(R.id.progrssBarInMain);
         interstitialAd = new InterstitialAd(this);
-        interstitialAd.setAdUnitId("ca-app-pub-9531546526616195/2141451878");
+        interstitialAd.setAdUnitId("");
         interstitialAd.loadAd(new AdRequest.Builder().build());
 
 
