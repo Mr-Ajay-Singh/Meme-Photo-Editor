@@ -9,7 +9,6 @@ Download Apk By Clicking on the Link
 
 <span>
 <img src="https://github.com/Mr-Ajay-Singh/Meme-Photo-Editor/blob/master/app/src/main/res/Meme/meme.jpg" width="200" height="400" />
-<img src="https://github.com/Mr-Ajay-Singh/Meme-Photo-Editor/blob/master/app/src/main/res/Meme/meme1.jpg" width="200" height="400" />
 <img src="https://github.com/Mr-Ajay-Singh/Meme-Photo-Editor/blob/master/app/src/main/res/Meme/meme2.jpg" width="200" height="400" />
 <img src="https://github.com/Mr-Ajay-Singh/Meme-Photo-Editor/blob/master/app/src/main/res/Meme/meme3.jpg" width="200" height="400" />
 <img src="https://github.com/Mr-Ajay-Singh/Meme-Photo-Editor/blob/master/app/src/main/res/Meme/meme4.jpg" width="200" height="400" />
