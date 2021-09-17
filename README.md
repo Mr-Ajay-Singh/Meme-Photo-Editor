@@ -8,11 +8,11 @@ Download Apk By Clicking on the Link
 
 
 <span>
-<img src="https://github.com/Mr-Ajay-Singh/Whatsapp-Status-Downloader/blob/master/app/src/main/res/ScreenShots/photo1.jpg" width="200" height="400" />
-<img src="https://github.com/Mr-Ajay-Singh/Whatsapp-Status-Downloader/blob/master/app/src/main/res/ScreenShots/photo2.jpg" width="200" height="400" />
-<img src="https://github.com/Mr-Ajay-Singh/Whatsapp-Status-Downloader/blob/master/app/src/main/res/ScreenShots/photo3.jpg" width="200" height="400" />
-<img src="https://github.com/Mr-Ajay-Singh/Whatsapp-Status-Downloader/blob/master/app/src/main/res/ScreenShots/photo4.jpg" width="200" height="400" />
-<img src="https://github.com/Mr-Ajay-Singh/Whatsapp-Status-Downloader/blob/master/app/src/main/res/ScreenShots/photo5.jpg" width="200" height="400" />
-<img src="https://github.com/Mr-Ajay-Singh/Whatsapp-Status-Downloader/blob/master/app/src/main/res/ScreenShots/photo6.jpg" width="200" height="400" />
-<img src="https://github.com/Mr-Ajay-Singh/Whatsapp-Status-Downloader/blob/master/app/src/main/res/ScreenShots/photo7.jpg" width="200" height="400" />
+<img src="https://github.com/Mr-Ajay-Singh/Meme-Photo-Editor/blob/master/app/src/main/res/Meme/meme.jpg" width="200" height="400" />
+<img src="https://github.com/Mr-Ajay-Singh/Meme-Photo-Editor/blob/master/app/src/main/res/Meme/meme1.jpg" width="200" height="400" />
+<img src="https://github.com/Mr-Ajay-Singh/Meme-Photo-Editor/blob/master/app/src/main/res/Meme/meme2.jpg" width="200" height="400" />
+<img src="https://github.com/Mr-Ajay-Singh/Meme-Photo-Editor/blob/master/app/src/main/res/Meme/meme3.jpg" width="200" height="400" />
+<img src="https://github.com/Mr-Ajay-Singh/Meme-Photo-Editor/blob/master/app/src/main/res/Meme/meme4.jpg" width="200" height="400" />
+<img src="https://github.com/Mr-Ajay-Singh/Meme-Photo-Editor/blob/master/app/src/main/res/Meme/meme5.jpg" width="200" height="400" />
+<img src="https://github.com/Mr-Ajay-Singh/Meme-Photo-Editor/blob/master/app/src/main/res/Meme/meme6.jpg" width="200" height="400" />
 </span>
