@@ -24,8 +24,6 @@ import com.cyris.createphoto.FirstActivity;
 import com.cyris.createphoto.MainActivity;
 import com.cyris.createphoto.R;
 import com.cyris.createphoto.ShareFile;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
 
@@ -33,7 +31,6 @@ import java.util.ArrayList;
 
 public class MemesAdapter extends RecyclerView.Adapter<MemesAdapter.MemesViewHolder> {
 
-    private InterstitialAd interstitialAd;
     ArrayList<String> memesList;
     Context context;
     Dialog dialog;
@@ -46,9 +43,6 @@ public class MemesAdapter extends RecyclerView.Adapter<MemesAdapter.MemesViewHol
             context = ctx;
             memesList = meme;
             dialogOperation();
-            interstitialAd = new InterstitialAd(context);
-            interstitialAd.setAdUnitId("");
-            interstitialAd.loadAd(new AdRequest.Builder().build());
         }
 
 
@@ -149,9 +143,7 @@ public class MemesAdapter extends RecyclerView.Adapter<MemesAdapter.MemesViewHol
                                 case MotionEvent.ACTION_UP :
                                     downloadPermission(getLayoutPosition());
                                     downloadImage.setImageResource(R.drawable.download);
-                                    if (interstitialAd.isLoaded()) {
-                                        interstitialAd.show();
-                                    }
+
                                         break;
                             }
 

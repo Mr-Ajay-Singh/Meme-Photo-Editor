@@ -31,7 +31,6 @@ import android.widget.TextView;
 import com.google.android.gms.ads.formats.MediaView;
 import com.google.android.gms.ads.formats.NativeAd.Image;
 import com.google.android.gms.ads.formats.UnifiedNativeAd;
-import com.google.android.gms.ads.formats.UnifiedNativeAdView;
 
 /** Base class for a template view. * */
 public class TemplateView extends FrameLayout {
@@ -39,7 +38,7 @@ public class TemplateView extends FrameLayout {
   private int templateType;
   private NativeTemplateStyle styles;
   private UnifiedNativeAd nativeAd;
-  private UnifiedNativeAdView nativeAdView;
+  //private UnifiedNativeAdView nativeAdView;
 
   private TextView primaryView;
   private TextView secondaryView;
@@ -67,19 +66,19 @@ public class TemplateView extends FrameLayout {
     initView(context, attrs);
   }
 
-  public TemplateView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+  /*public TemplateView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
     super(context, attrs, defStyleAttr, defStyleRes);
     initView(context, attrs);
-  }
+  }*/
 
   public void setStyles(NativeTemplateStyle styles) {
     this.styles = styles;
     this.applyStyles();
   }
 
-  public UnifiedNativeAdView getNativeAdView() {
+ /* public UnifiedNativeAdView getNativeAdView() {
     return nativeAdView;
-  }
+  }*/
 
   private void applyStyles() {
 
@@ -200,19 +199,9 @@ public class TemplateView extends FrameLayout {
 
     String secondaryText;
 
-    nativeAdView.setCallToActionView(callToActionView);
-    nativeAdView.setHeadlineView(primaryView);
-    nativeAdView.setMediaView(mediaView);
+
     secondaryView.setVisibility(VISIBLE);
-    if (adHasOnlyStore(nativeAd)) {
-      nativeAdView.setStoreView(secondaryView);
-      secondaryText = store;
-    } else if (!TextUtils.isEmpty(advertiser)) {
-      nativeAdView.setAdvertiserView(secondaryView);
-      secondaryText = advertiser;
-    } else {
       secondaryText = "";
-    }
 
     primaryView.setText(headline);
     callToActionView.setText(cta);
@@ -222,7 +211,6 @@ public class TemplateView extends FrameLayout {
       secondaryView.setVisibility(GONE);
       ratingBar.setVisibility(VISIBLE);
       ratingBar.setMax(5);
-      nativeAdView.setStarRatingView(ratingBar);
     } else {
       secondaryView.setText(secondaryText);
       secondaryView.setVisibility(VISIBLE);
@@ -238,10 +226,8 @@ public class TemplateView extends FrameLayout {
 
     if (tertiaryView != null) {
       tertiaryView.setText(body);
-      nativeAdView.setBodyView(tertiaryView);
     }
 
-    nativeAdView.setNativeAd(nativeAd);
   }
 
   /**
@@ -282,7 +268,6 @@ public class TemplateView extends FrameLayout {
   @Override
   public void onFinishInflate() {
     super.onFinishInflate();
-    nativeAdView = (UnifiedNativeAdView) findViewById(R.id.native_ad_view);
     primaryView = (TextView) findViewById(R.id.primary);
     secondaryView = (TextView) findViewById(R.id.secondary);
     tertiaryView = (TextView) findViewById(R.id.body);

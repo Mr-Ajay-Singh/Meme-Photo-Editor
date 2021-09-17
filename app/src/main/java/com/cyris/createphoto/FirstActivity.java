@@ -20,17 +20,6 @@ import android.widget.Toast;
 
 import com.cyris.createphoto.Adapters.SavedViewPagerAdapter;
 import com.cyris.createphoto.Adapters.ViewPagerAdapter;
-import com.google.android.ads.nativetemplates.NativeTemplateStyle;
-import com.google.android.ads.nativetemplates.TemplateView;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdLoader;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.NativeExpressAdView;
-import com.google.android.gms.ads.formats.NativeAdOptions;
-import com.google.android.gms.ads.formats.UnifiedNativeAd;
-import com.google.android.gms.ads.formats.UnifiedNativeAdView;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.theartofdev.edmodo.cropper.CropImage;
 
@@ -45,7 +34,6 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-import com.google.android.gms.ads.InterstitialAd;
 
 public class FirstActivity extends AppCompatActivity {
 
@@ -58,8 +46,7 @@ public class FirstActivity extends AppCompatActivity {
     Button cancelButton,exitButton;
     SavedViewPagerAdapter savedViewPagerAdapter;
     ImageView addImageInLowerSection,homeInLowerSection,bookmarkInLowerSection;
-    AdLoader adLoader;
-    FrameLayout adFrameLayout;
+    //FrameLayout adFrameLayout;
 
 
     @Override
@@ -99,11 +86,10 @@ public class FirstActivity extends AppCompatActivity {
                 FirstActivity.this.finishAffinity();
             }
         });
-        adFrameLayout = exitDialog.findViewById(R.id.adSectionExitFrameLayout);
+//        adFrameLayout = exitDialog.findViewById(R.id.adSectionExitFrameLayout);
 
        viewPager.setAdapter(mainAdapter);
        tabLayout.setupWithViewPager(viewPager);
-        exitAdLoading();
 
 
 
@@ -197,77 +183,10 @@ public class FirstActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        if(exitDialog.isShowing())
+        if (exitDialog.isShowing())
             exitDialog.dismiss();
         exitDialog.show();
-        adLoader.loadAd(new AdRequest.Builder().build());
-
-    
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        if(requestCode == MY_PERMISSIONS_REQUEST_WRITE_STORAGE && grantResults[0]==PackageManager.PERMISSION_GRANTED)
-        {
-            if (viewPager.getAdapter()!=savedViewPagerAdapter)
-            {
-                viewPager.setAdapter(savedViewPagerAdapter);
-                tabLayout.setVisibility(View.GONE);
-                getSupportActionBar().show();
-            }
-        }
-        if(requestCode == MY_PERMISSIONS_REQUEST_WRITE_STORAGE && grantResults[0]==PackageManager.PERMISSION_DENIED)
-        {
-            Snackbar.make(viewPager,"Permission Denied",Snackbar.LENGTH_SHORT).show();
-        }
-
-        if(requestCode == 11 && grantResults[0]==PackageManager.PERMISSION_DENIED)
-        {
-            Snackbar.make(viewPager,"Permission Denied",Snackbar.LENGTH_SHORT).show();
-        }
-         if(requestCode == 12 && grantResults[0]==PackageManager.PERMISSION_DENIED)
-        {
-            Snackbar.make(viewPager,"Permission Denied",Snackbar.LENGTH_SHORT).show();
-        }
-        if(requestCode == 13 && grantResults[0]==PackageManager.PERMISSION_DENIED)
-        {
-            Snackbar.make(viewPager,"Permission Denied",Snackbar.LENGTH_SHORT).show();
-        }
-        if(requestCode == 11 && grantResults[0]==PackageManager.PERMISSION_GRANTED)
-        {
-            Snackbar.make(viewPager,"Please Click Again",Snackbar.LENGTH_SHORT).show();
-        }
-         if(requestCode == 12 && grantResults[0]==PackageManager.PERMISSION_GRANTED)
-                {
-                    Snackbar.make(viewPager,"Please Click Again",Snackbar.LENGTH_SHORT).show();
-                }
-         if(requestCode == 13 && grantResults[0]==PackageManager.PERMISSION_GRANTED)
-                {
-                    Snackbar.make(viewPager,"Please Click Again",Snackbar.LENGTH_SHORT).show();
-                }
 
 
     }
-
-
-    public void exitAdLoading()
-    {
-         adLoader = new AdLoader.Builder(this, "")
-                .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
-                    @Override
-                    public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
-                        NativeTemplateStyle styles = new
-                                NativeTemplateStyle.Builder().build();
-
-                        TemplateView template = exitDialog.findViewById(R.id.my_template);
-                        template.setStyles(styles);
-                        template.setNativeAd(unifiedNativeAd);
-
-                    }
-                })
-                .build();
-    }
-
-
 }

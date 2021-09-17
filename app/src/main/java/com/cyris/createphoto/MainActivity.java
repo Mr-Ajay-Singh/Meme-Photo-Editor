@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -56,13 +57,6 @@ import com.cyris.createphoto.Adapters.ItemAdapter;
 import com.cyris.createphoto.Adapters.MemesAdapter;
 import com.cyris.createphoto.Adapters.StickerAdapter;
 import com.cyris.createphoto.ItemType.ItemType;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.reward.AdMetadataListener;
-import com.google.android.gms.ads.reward.RewardItem;
-import com.google.android.gms.ads.reward.RewardedVideoAd;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
@@ -86,28 +80,27 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.ItemD
         AdapterView.OnItemSelectedListener {
 
     PhotoEditorView photoEditorView;
-    private InterstitialAd interstitialAd;
-    ImageView saveImageButton,crossImageButton,undoButton,redoButton,
-            shareInSavedImageDialog,whatsappInSavedImageDialog,imageInSavedDialog,okImageInSavedImageDialog,
+    ImageView saveImageButton, crossImageButton, undoButton, redoButton,
+            shareInSavedImageDialog, whatsappInSavedImageDialog, imageInSavedDialog, okImageInSavedImageDialog,
             howToImageInMain;
     private PhotoEditor mPhotoEditor;
-    RecyclerView itemSelectionRecyclerView,textColorRecyclerview,brushColorRecyclerView,emojiRecyclerview,stickerRecyclerView;
-    Dialog dialog,brushDialog,emojiDialog,stickerDialog,savedImageDialog,howToDialog;
-    AlertDialog saveCheckDialog,discardCheckDialog;
-    AlertDialog.Builder builder1,builder2;
-    int textR=0,textG=0,textB=0;
-    ImageView imageOkButton,imageCancelButton;
+    RecyclerView itemSelectionRecyclerView, textColorRecyclerview, brushColorRecyclerView, emojiRecyclerview, stickerRecyclerView;
+    Dialog dialog, brushDialog, emojiDialog, stickerDialog, savedImageDialog, howToDialog;
+    AlertDialog saveCheckDialog, discardCheckDialog;
+    AlertDialog.Builder builder1, builder2;
+    int textR = 0, textG = 0, textB = 0;
+    ImageView imageOkButton, imageCancelButton;
     EditText textEditext;
     SwitchCompat textSwitch;
-    int finalTextColor,textBackgroudColor;
-    SeekBar brushSizeSeekBar,brushOpacitySeekBar;
+    int finalTextColor, textBackgroudColor;
+    SeekBar brushSizeSeekBar, brushOpacitySeekBar;
     Bitmap bitmap;
-    String imageLink,imageLinkHome;
-    boolean checkSavedIntent,isSaved;
+    String imageLink, imageLinkHome;
+    boolean checkSavedIntent, isSaved;
     Spinner typefaceSpinner;
     Typeface typeface;
     ProgressBar progressBar;
-    private boolean isworking =false;
+    private boolean isworking = false;
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -118,72 +111,49 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.ItemD
         getSupportActionBar().hide();
         initialize();
         FetchImage fetchImage = new FetchImage();
-        mPhotoEditor = new PhotoEditor.Builder(this,photoEditorView).build();
-        imageLink =getIntent().getStringExtra(getString(R.string.intent_meme));
+        mPhotoEditor = new PhotoEditor.Builder(this, photoEditorView).build();
+        imageLink = getIntent().getStringExtra(getString(R.string.intent_meme));
         imageLinkHome = getIntent().getStringExtra(getString(R.string.intent_meme_home));
-        checkSavedIntent = getIntent().getBooleanExtra(getString(R.string.check_saved_intent),false);
+        checkSavedIntent = getIntent().getBooleanExtra(getString(R.string.check_saved_intent), false);
         progressBar = findViewById(R.id.progrssBarInMain);
-        interstitialAd = new InterstitialAd(this);
-        interstitialAd.setAdUnitId("");
-        interstitialAd.loadAd(new AdRequest.Builder().build());
 
 
-
-
-        if(imageLink!=null) {
+        if (imageLink != null) {
             fetchImage.execute(imageLink);
-     /*   if (android.os.Build.VERSION.SDK_INT >= 21) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                        MY_PERMISSIONS_REQUEST_WRITE_STORAGE);
-
-
-            }
-        }*/
-
-        }
-        else
-        {
+        } else {
             progressBar.setVisibility(View.INVISIBLE);
-            if(checkSavedIntent)
-            {
+            if (checkSavedIntent) {
                 File file = new File(imageLinkHome);
                 try {
                     bitmap = BitmapFactory.decodeStream(new FileInputStream(file));
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
-            }
-            else
-            {
-                InputStream stream=null;
+            } else {
+                InputStream stream = null;
                 try {
-                    Log.i("workTest","Work");
+                    Log.i("workTest", "Work");
                     stream = getContentResolver().openInputStream(Uri.parse(imageLinkHome));
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
-                if(stream!=null)
-                {
+                if (stream != null) {
                     bitmap = BitmapFactory.decodeStream(stream);
 
                 }
 
 
-
-              //  photoEditorView.getSource().setImageBitmap(bitmap);
+                //  photoEditorView.getSource().setImageBitmap(bitmap);
             }
-            Log.i("HeightWidth",String.valueOf(bitmap.getWidth()+" "+bitmap.getHeight()));
-            Bitmap bitmap1 = Bitmap.createBitmap(bitmap.getWidth(),bitmap.getHeight()+200,bitmap.getConfig());
+            Log.i("HeightWidth", String.valueOf(bitmap.getWidth() + " " + bitmap.getHeight()));
+            Bitmap bitmap1 = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight() + 200, bitmap.getConfig());
             Canvas canvas = new Canvas(bitmap1);
             canvas.drawColor(Color.WHITE);
-            canvas.drawBitmap(bitmap,0,200,null);
+            canvas.drawBitmap(bitmap, 0, 200, null);
             photoEditorView.getSource().setImageBitmap(bitmap1);
 
         }
-  //      Bitmap.Config conf = Bitmap.Config.ARGB_8888;
+        //      Bitmap.Config conf = Bitmap.Config.ARGB_8888;
 //        Bitmap bitmap_object = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight()+100, conf);
 
 
@@ -194,7 +164,7 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.ItemD
             @Override
             public void onEditTextChangeListener(final View rootView, String text, final int colorCode) {
                 typefaceSpinner.setVisibility(View.INVISIBLE);
-                textOperation(text,finalTextColor,rootView,textBackgroudColor);
+                textOperation(text, finalTextColor, rootView, textBackgroudColor);
                 rootView.setBackgroundColor(textBackgroudColor);
             }
 
@@ -222,7 +192,6 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.ItemD
     }
 
 
-
     private void initialize() {
         photoEditorView = findViewById(R.id.photoEditorView);
         saveImageButton = findViewById(R.id.saveImageButton);
@@ -230,12 +199,12 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.ItemD
         redoButton = findViewById(R.id.redoButton);
         crossImageButton = findViewById(R.id.crossImageButton);
         itemSelectionRecyclerView = findViewById(R.id.itemSelectionRecyclerVeiw);
-        LinearLayoutManager manager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         itemSelectionRecyclerView.setLayoutManager(manager);
         ItemAdapter itemAdapter = new ItemAdapter(this);
         itemSelectionRecyclerView.setAdapter(itemAdapter);
         itemSelectionRecyclerView.setHasFixedSize(true);
-        dialog = new Dialog(this,R.style.Theme_AppCompat_Light_DialogWhenLarge);
+        dialog = new Dialog(this, R.style.Theme_AppCompat_Light_DialogWhenLarge);
         howToImageInMain = findViewById(R.id.howToImageButton);
 
 
@@ -255,19 +224,14 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.ItemD
         okImageInSavedImageDialog.setImageResource(R.drawable.ok);
 
 
+        saveImageExent();
 
 
-
-
-       saveImageExent();
-
-
-
-      //  LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT);
+        //  LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT);
         dialog.setContentView(R.layout.text_detail_dialog);
         textColorRecyclerview = dialog.findViewById(R.id.selectColorRecyclerviewInText);
-        textColorRecyclerview.setLayoutManager(new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false));
-        textColorRecyclerview.setAdapter(new ColorAdapter(this,this,getResources().getString(R.string.text_color)));
+        textColorRecyclerview.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
+        textColorRecyclerview.setAdapter(new ColorAdapter(this, this, getResources().getString(R.string.text_color)));
         textSwitch = dialog.findViewById(R.id.switchTypeText);
         imageOkButton = dialog.findViewById(R.id.okInDialog);
         imageCancelButton = dialog.findViewById(R.id.cancelInDialog);
@@ -278,7 +242,7 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.ItemD
         brushColorRecyclerView = brushDialog.findViewById(R.id.selectColorRecyclerviewInBrush);
         brushDialog.getWindow().setGravity(Gravity.BOTTOM);
         brushDialog.getWindow().setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        brushOpacitySeekBar =brushDialog.findViewById(R.id.brushOpacitySeekBar);
+        brushOpacitySeekBar = brushDialog.findViewById(R.id.brushOpacitySeekBar);
         brushSizeSeekBar = brushDialog.findViewById(R.id.brushSizeSeekBar);
 
 
@@ -286,8 +250,8 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.ItemD
         emojiDialog.setContentView(R.layout.emoji_dialog);
         emojiRecyclerview = emojiDialog.findViewById(R.id.emojiRecyclerView);
         emojiDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        emojiRecyclerview.setLayoutManager(new GridLayoutManager(this,4));
-        emojiRecyclerview.setAdapter(new EmojiAdapter(this,this));
+        emojiRecyclerview.setLayoutManager(new GridLayoutManager(this, 4));
+        emojiRecyclerview.setAdapter(new EmojiAdapter(this, this));
 
 
         stickerDialog = new Dialog(this);
@@ -295,8 +259,8 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.ItemD
         stickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
         stickerDialog.getWindow().setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         stickerRecyclerView = stickerDialog.findViewById(R.id.stickerRecyclerView);
-        stickerRecyclerView.setLayoutManager(new GridLayoutManager(this,3));
-        stickerRecyclerView.setAdapter(new StickerAdapter(this,this));
+        stickerRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+        stickerRecyclerView.setAdapter(new StickerAdapter(this, this));
 
 
         saveDiscardOperation();
@@ -315,8 +279,6 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.ItemD
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 saveCheckDialog.dismiss();
-
-
             }
         });
         builder1.setPositiveButton("Save", new DialogInterface.OnClickListener() {
@@ -326,6 +288,16 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.ItemD
             public void onClick(DialogInterface dialogInterface, int i) {
 
                 try {
+                    if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                        // TODO: Consider calling
+                        //    ActivityCompat#requestPermissions
+                        // here to request the missing permissions, and then overriding
+                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                        //                                          int[] grantResults)
+                        // to handle the case where the user grants the permission. See the documentation
+                        // for ActivityCompat#requestPermissions for more details.
+                        return;
+                    }
                     mPhotoEditor.saveAsFile(DownloadFile.DownloadFile1(MainActivity.this), new PhotoEditor.OnSaveListener() {
                         @Override
                         public void onSuccess(@NonNull final String imagePath) {
@@ -336,19 +308,19 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.ItemD
                                 e.printStackTrace();
                             }
                             try {
-                                path = MediaStore.Images.Media.insertImage(getContentResolver(),file.toString(),"","");
+                                path = MediaStore.Images.Media.insertImage(getContentResolver(), file.toString(), "", "");
                             } catch (FileNotFoundException e) {
                                 e.printStackTrace();
                             }
 
                             imageInSavedDialog.setImageBitmap(bitmap);
-                            Toast.makeText(MainActivity.this,"Image Saved successfully",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Image Saved successfully", Toast.LENGTH_SHORT).show();
                             shareInSavedImageDialog.setOnTouchListener(new View.OnTouchListener() {
                                 @Override
                                 public boolean onTouch(View view, MotionEvent motionEvent) {
-                                    switch (motionEvent.getAction())
-                                    {
-                                        case MotionEvent.ACTION_DOWN: shareInSavedImageDialog.setImageResource(R.drawable.share_dark);
+                                    switch (motionEvent.getAction()) {
+                                        case MotionEvent.ACTION_DOWN:
+                                            shareInSavedImageDialog.setImageResource(R.drawable.share_dark);
                                             break;
                                         case MotionEvent.ACTION_UP:
                                             shareInSavedImageDialog.setImageResource(R.drawable.share1);
@@ -365,11 +337,12 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.ItemD
                             whatsappInSavedImageDialog.setOnTouchListener(new View.OnTouchListener() {
                                 @Override
                                 public boolean onTouch(View view, MotionEvent motionEvent) {
-                                    switch (motionEvent.getAction())
-                                    {
-                                        case MotionEvent.ACTION_DOWN: whatsappInSavedImageDialog.setImageResource(R.drawable.whatsapp_dark);
+                                    switch (motionEvent.getAction()) {
+                                        case MotionEvent.ACTION_DOWN:
+                                            whatsappInSavedImageDialog.setImageResource(R.drawable.whatsapp_dark);
                                             break;
-                                        case MotionEvent.ACTION_UP: whatsappInSavedImageDialog.setImageResource(R.drawable.whatsapp);
+                                        case MotionEvent.ACTION_UP:
+                                            whatsappInSavedImageDialog.setImageResource(R.drawable.whatsapp);
                                             Intent shareIntent = new Intent(Intent.ACTION_SEND);
                                             shareIntent.setType("image/jpg");
                                             shareIntent.setPackage("com.whatsapp");
@@ -382,25 +355,19 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.ItemD
                             });
 
                             okImageInSavedImageDialog.setOnTouchListener(new View.OnTouchListener() {
+                                @SuppressLint("ClickableViewAccessibility")
                                 @Override
                                 public boolean onTouch(View view, MotionEvent motionEvent) {
-                                    switch (motionEvent.getAction())
-                                    {
-                                        case MotionEvent.ACTION_DOWN: okImageInSavedImageDialog.setImageResource(R.drawable.ok_dark);
+                                    switch (motionEvent.getAction()) {
+                                        case MotionEvent.ACTION_DOWN:
+                                            okImageInSavedImageDialog.setImageResource(R.drawable.ok_dark);
                                             break;
                                         case MotionEvent.ACTION_UP:
-                                                savedImageDialog.dismiss();
-                                                if(interstitialAd.isLoaded())
-                                                {
-                                                    interstitialAd.show();
-                                                    savedImageDialog.dismiss();
-                                                }
-                                                else
-                                                {
-                                                    MainActivity.this.finish();
-                                                }
+                                            savedImageDialog.dismiss();
 
-                                                isworking=true;
+                                                MainActivity.this.finish();
+
+                                            isworking = true;
 
                                             okImageInSavedImageDialog.setImageResource(R.drawable.ok);
                                             break;
@@ -411,7 +378,7 @@ public class MainActivity extends AppCompatActivity implements ItemAdapter.ItemD
 
 
                             isSaved = true;
-                                savedImageDialog.show();
+                            savedImageDialog.show();
 
 
                         }

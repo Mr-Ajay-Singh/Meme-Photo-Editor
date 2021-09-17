@@ -61,18 +61,7 @@
                     />
 
             </LinearLayout>
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/adSectionExitFrameLayout"
-                >
-                <com.google.android.ads.nativetemplates.TemplateView
-                    android:id="@+id/my_template"
-                app:gnt_template_type="@layout/gnt_medium_template_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
 
-            </FrameLayout>
 
 
         </LinearLayout>

@@ -373,6 +373,9 @@ int attr windowNoTitle 0x0
 int bool abc_action_bar_embed_tabs 0x0
 int bool abc_allow_stacked_button_bar 0x0
 int bool abc_config_actionMenuItemAllCaps 0x0
+int bool enable_system_alarm_service_default 0x0
+int bool enable_system_job_service_default 0x0
+int bool workmanager_test_configuration 0x0
 int color abc_background_cache_hint_selector_material_dark 0x0
 int color abc_background_cache_hint_selector_material_light 0x0
 int color abc_btn_colored_borderless_text_material 0x0
@@ -974,6 +977,13 @@ int string abc_shareactionprovider_share_with 0x0
 int string abc_shareactionprovider_share_with_application 0x0
 int string abc_toolbar_collapse_description 0x0
 int string common_google_play_services_unknown_issue 0x0
+int string offline_notification_text 0x0
+int string offline_notification_title 0x0
+int string offline_opt_in_confirm 0x0
+int string offline_opt_in_confirmation 0x0
+int string offline_opt_in_decline 0x0
+int string offline_opt_in_message 0x0
+int string offline_opt_in_title 0x0
 int string s1 0x0
 int string s2 0x0
 int string s3 0x0
